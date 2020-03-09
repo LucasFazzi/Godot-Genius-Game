@@ -8,9 +8,9 @@ var guard_information = []
 var can_click = true
 var player_can_play = false
 var your_information_pressed = []
+var frame_bot_color
 
 func _ready():
-	disable_buttons()
 	randomic_start()
 	start_bot_play()
 
@@ -24,14 +24,9 @@ func randomic_start():
 	randomize()
 	forms.shuffle()
 
-func disable_buttons():
-		get_node("Bot_Color_1").visible = false
-		get_node("Bot_Color_2").visible = false
-		get_node("Bot_Color_3").visible = false
-		get_node("Bot_Color_4").visible = false
-
 func start_bot_play():
 	while number_of_bot_played < number_of_time_bot_plays:
+		get_node("Bot_Color_1").visible = false
 		print ("forms",forms[0])
 		guard_information.append(forms[0])
 		check_button_color()
@@ -48,59 +43,26 @@ func start_bot_play():
 		check_bot_finish()
 
 func check_button_color():
-	if forms[0] == 1:
-		get_node("Bot_Color_1").visible = true
-		var waiting_timer = Timer.new()
-		waiting_timer.set_wait_time(2)
-		waiting_timer.set_one_shot(false)
-		call_deferred("add_child", waiting_timer)
-		waiting_timer.set_autostart(true)
-		yield(waiting_timer, "timeout")
-		get_node("Bot_Color_1").visible = false
-		pass
-	if forms[0] == 2:
-		get_node("Bot_Color_2").visible = true
-		var waiting_timer = Timer.new()
-		waiting_timer.set_wait_time(2)
-		waiting_timer.set_one_shot(false)
-		call_deferred("add_child", waiting_timer)
-		waiting_timer.set_autostart(true)
-		yield(waiting_timer, "timeout")
-		get_node("Bot_Color_2").visible = false
-		pass
-	if forms[0] == 3:
-		get_node("Bot_Color_3").visible = true
-		var waiting_timer = Timer.new()
-		waiting_timer.set_wait_time(2)
-		waiting_timer.set_one_shot(false)
-		call_deferred("add_child", waiting_timer)
-		waiting_timer.set_autostart(true)
-		yield(waiting_timer, "timeout")
-		get_node("Bot_Color_3").visible = false
-		pass
-	if forms[0] == 4:
-		get_node("Bot_Color_4").visible = true
-		var waiting_timer = Timer.new()
-		waiting_timer.set_wait_time(2)
-		waiting_timer.set_one_shot(false)
-		call_deferred("add_child", waiting_timer)
-		waiting_timer.set_autostart(true)
-		yield(waiting_timer, "timeout")
-		get_node("Bot_Color_4").visible = false
-		pass
+	var waiting_timer = Timer.new()
+	waiting_timer.set_wait_time(2)
+	waiting_timer.set_one_shot(false)
+	call_deferred("add_child", waiting_timer)
+	waiting_timer.set_autostart(true)
+	yield(waiting_timer, "timeout")
+	get_node("Bot_Color_1").visible = true
+	frame_bot_color = forms[0]
+	get_node("Bot_Color_1").play(str(frame_bot_color))
+	print (frame_bot_color, "frame")
 
 func check_bot_finish():
-	guard_information_process()
 	print ("bot finish")
 	player_can_play = true
 	if player_can_play == true:
+		get_node("Bot_Color_1").visible = false
 		get_node("Button_1").disabled = false
 		get_node("Button_2").disabled = false
 		get_node("Button_3").disabled = false
 		get_node("Button_4").disabled = false
-	pass
-
-func guard_information_process():
 	pass
 
 func press_button():
@@ -110,7 +72,7 @@ func press_button():
 		print("your information",your_information_pressed)
 		can_click = false
 		var waiting_timer = Timer.new()
-		waiting_timer.set_wait_time(0.2)
+		waiting_timer.set_wait_time(0.5)
 		waiting_timer.set_one_shot(true)
 		call_deferred("add_child", waiting_timer)
 		waiting_timer.set_autostart(true)
@@ -122,7 +84,7 @@ func press_button():
 		print("your information",your_information_pressed)
 		can_click = false
 		var waiting_timer = Timer.new()
-		waiting_timer.set_wait_time(0.2)
+		waiting_timer.set_wait_time(0.5)
 		waiting_timer.set_one_shot(true)
 		call_deferred("add_child", waiting_timer)
 		waiting_timer.set_autostart(true)
@@ -134,7 +96,7 @@ func press_button():
 		print("your information",your_information_pressed)
 		can_click = false
 		var waiting_timer = Timer.new()
-		waiting_timer.set_wait_time(0.2)
+		waiting_timer.set_wait_time(0.5)
 		waiting_timer.set_one_shot(true)
 		call_deferred("add_child", waiting_timer)
 		waiting_timer.set_autostart(true)
@@ -146,7 +108,7 @@ func press_button():
 		print("your information",your_information_pressed)
 		can_click = false
 		var waiting_timer = Timer.new()
-		waiting_timer.set_wait_time(0.2)
+		waiting_timer.set_wait_time(0.5)
 		waiting_timer.set_one_shot(true)
 		call_deferred("add_child", waiting_timer)
 		waiting_timer.set_autostart(true)
