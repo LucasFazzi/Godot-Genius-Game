@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/button_2.wav-9ab63c9f0e77354efbc8646db2e4220f.sample"
+
+[deps]
+
+source_file="res://SFX/button_2.wav"
+dest_files=[ "res://.import/button_2.wav-9ab63c9f0e77354efbc8646db2e4220f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

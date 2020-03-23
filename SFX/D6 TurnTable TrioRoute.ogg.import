@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/D6 TurnTable TrioRoute.ogg-058c9be7799acf6fecaee51618a278f7.oggstr"
+
+[deps]
+
+source_file="res://SFX/D6 TurnTable TrioRoute.ogg"
+dest_files=[ "res://.import/D6 TurnTable TrioRoute.ogg-058c9be7799acf6fecaee51618a278f7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
