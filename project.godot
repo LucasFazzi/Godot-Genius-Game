@@ -16,11 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Genius_Bichometrico"
-config/icon="res://icon.png"
+run/main_scene="res://Scenes/MainScene.tscn"
+boot_splash/image="res://Sprites/tela bootsplash.png"
+config/icon="res://Sprites/tumbnail2.png"
 
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+Ost="*res://Scenes/OST.tscn"
 
 [display]
 
